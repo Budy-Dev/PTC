@@ -15,7 +15,7 @@ def receber_formulario():
     print('Data:', data['data'])
     # Outros campos do formulário
 
-    # Retorne uma resposta de sucesso ao frontend
+    # Retorne uma resposta de sucesso ao frontend.
     return jsonify({'message': 'Formulário recebido com sucesso.'})
 
 if __name__ == '__main__':
