@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/endpoint', methods=['POST'])
+@app.route('/', methods=['POST'])
 def receber_formulario():
     data = request.get_json()
 
@@ -19,4 +19,4 @@ def receber_formulario():
     return jsonify({'message': 'Formulário recebido com sucesso.'})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=5000, debug=True)
