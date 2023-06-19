@@ -4,13 +4,10 @@ from fastapi import FastAPI
 
 app = FastAPI(title="Api de PTC")
 
-@app.get('/',include_in_schema=False)
-def index():
-    return RedirectResponse("/docs", status_code=308)
 
-@app.get("/api")
+@app.route("/api/denuncia", methods=["POST"])
 def receber_formulario():
-    data = request.get_json()
+    data = request.json
 
     # Aqui você pode tratar os dados recebidos do formulário
     # e realizar as operações necessárias, como adicionar ao dataset, treinamento do modelo, etc.
@@ -24,5 +21,5 @@ def receber_formulario():
     # Retorne uma resposta de sucesso ao frontend.
     return jsonify({'message': 'Formulário recebido com sucesso.'})
 
-#if __name__ == '__main__':
-    #app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=8080)
