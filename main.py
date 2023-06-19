@@ -1,9 +1,14 @@
 from flask import Flask, request, jsonify
+from fastapi.responses import RedirectResponse
 from fastapi import FastAPI
 
 app = FastAPI(title="Api de PTC")
 
-@app.route('/', methods=['POST'])
+@app.get('/',include_in_schema=False)
+def index():
+    return RedirectResponse("/docs", status_code=300)
+
+@app.get("/api")
 def receber_formulario():
     data = request.get_json()
 
