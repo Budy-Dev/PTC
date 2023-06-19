@@ -6,7 +6,7 @@ app = FastAPI(title="Api de PTC")
 
 @app.get('/',include_in_schema=False)
 def index():
-    return RedirectResponse("/docs", status_code=300)
+    return RedirectResponse("/docs", status_code=308)
 
 @app.get("/api")
 def receber_formulario():
