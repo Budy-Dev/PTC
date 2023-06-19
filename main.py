@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
+from fastapi import FastAPI
 
-app = Flask(__name__)
+app = FastAPI(title="Api de PTC")
 
 @app.route('/', methods=['POST'])
 def receber_formulario():
@@ -18,5 +19,5 @@ def receber_formulario():
     # Retorne uma resposta de sucesso ao frontend.
     return jsonify({'message': 'Formulário recebido com sucesso.'})
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
+#if __name__ == '__main__':
+    #app.run(host="0.0.0.0", port=5000, debug=True)
